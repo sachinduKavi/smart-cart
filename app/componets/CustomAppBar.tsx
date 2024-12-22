@@ -5,7 +5,7 @@ import {Appbar} from 'react-native-paper'
 
 export default function CustomAppBar(props: any) {
   return (
-    <Appbar.Header>
+    <Appbar.Header style={{backgroundColor: '#FA5B2C'}}>
         <Appbar.Content title={props.title} titleStyle={styles.title}/>
     </Appbar.Header>
   )
@@ -15,6 +15,7 @@ export default function CustomAppBar(props: any) {
 
 const styles = StyleSheet.create({
     title: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: 'white'
     }
 })
