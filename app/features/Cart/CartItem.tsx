@@ -16,7 +16,7 @@ export default function CartItem() {
 
             <View style={styles.description}>
                 <Text style={{color: '#B7BAC4', fontSize: 14, marginVertical: 5}} ellipsizeMode='tail' numberOfLines={2}>Apple Watch Ultra 2 Apple Watch Ultra 2 Apple Watch Ultra 2</Text>
-                <Text style={{color: '#FA5B2C', fontSize: 20, fontWeight: 'bold'}}>LKR 2500.00</Text>
+                <Text style={{color: '#0291AC', fontSize: 20, fontWeight: 'bold'}}>LKR 2500.00</Text>
                 
                 <Text style={{color: '#B7BAC4', fontSize: 20, marginVertical: 5, fontWeight: 'bold', alignSelf: 'flex-end', textAlign: 'right'}}>x1</Text>
             </View>

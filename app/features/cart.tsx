@@ -39,7 +39,7 @@ export default function cart() {
 
 
 const styles = StyleSheet.create({
-    bottomBar: { borderRadius: 5, padding: 5, elevation: 1, borderStyle: 'solid', backgroundColor: '#FA5B2C',
+    bottomBar: { borderRadius: 5, padding: 5, elevation: 1, borderStyle: 'solid', backgroundColor: '#005F7E',
         flexDirection: 'column'
     },
     button: {
