@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import CustomAppBar from '../componets/CustomAppBar'
+import CustomAppBar from '../../components/CustomAppBar'
 import { ScrollView } from 'react-native'
-import CartItem from './Cart/CartItem'
+import CartItem from './CartItem'
 import { Button } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 

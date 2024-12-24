@@ -47,6 +47,12 @@
           "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
           "recordAudioAndroid": true
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Laila-Bold.ttf"]
+        }
       ]
     ],
     "experiments": {
