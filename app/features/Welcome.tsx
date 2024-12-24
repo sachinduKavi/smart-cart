@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Welcome() {
   return (
-    <View style={styles.screen}>
+    <View style={styles.screen} className='bg-blue-400s'>
         <Text>Hello World</Text>
       <View>
         <Image
@@ -12,10 +12,10 @@ export default function Welcome() {
             style={styles.cart}
             contentFit='contain'
         />
-        <Text className='text-blue'>Cart Genie</Text>
+        <Text className='text-red font-bold bg-red-500'>Cart Genie</Text>
       </View>
 
-      <Text>Hello World</Text>
+      <Text style={styles.testingRed}>Hello World</Text>
     </View>
   )
 }
@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between'
+    },
+
+    testingRed: {
+      color: 'red'
     },
 
     cart: {

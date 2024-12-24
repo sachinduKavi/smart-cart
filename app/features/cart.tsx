@@ -4,6 +4,7 @@ import CustomAppBar from '../componets/CustomAppBar'
 import { ScrollView } from 'react-native'
 import CartItem from './Cart/CartItem'
 import { Button } from 'react-native-paper'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 
 
@@ -12,7 +13,8 @@ export default function cart() {
 
 
   return (
-    <View style={{backgroundColor: 'white', display: 'flex', height: '100%'}}>
+
+        <View style={{backgroundColor: 'white', display: 'flex', height: '100%'}}>
         
         <CustomAppBar title="Smart Shopping Cart"/>
 
@@ -34,6 +36,7 @@ export default function cart() {
         </View>
       
     </View>
+
   )
 }
 
