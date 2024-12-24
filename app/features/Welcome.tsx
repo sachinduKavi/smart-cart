@@ -12,7 +12,7 @@ export default function Welcome() {
             style={styles.cart}
             contentFit='contain'
         />
-        <Text className='text-white'>Cart Genie</Text>
+        <Text className='text-blue'>Cart Genie</Text>
       </View>
 
       <Text>Hello World</Text>
