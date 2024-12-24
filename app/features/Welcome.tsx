@@ -5,11 +5,11 @@ import { Button } from 'react-native-paper'
 import { globalStyles } from '@/global-styles'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import Icon from 'react-native-vector-icons/AntDesign'
-import { useNavigation } from '@react-navigation/native'
+import { useRouter } from 'expo-router'
 
 
 export default function Welcome() {
-  const navigation = useNavigation()
+ const router = useRouter()
 
   return (
     <SafeAreaProvider>
@@ -30,12 +30,13 @@ export default function Welcome() {
                 contentFit='contain'
             />
             <Text style={styles.cartText}>Cart Genie</Text>
+
             <Button 
             onPress={() => {
-              console.log('Helllo world')
-              navigation.navigate("scanner/QRCodeScanner");
+              router.push('/features/scanner')
             }}
             style={globalStyles.button} textColor='white'>PAIR UP CART</Button>
+    
           </View>
 
           <Text style={styles.bottomText}>Your ultimate shopping assistant</Text>

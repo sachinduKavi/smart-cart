@@ -17,7 +17,7 @@ export const globalStyles = StyleSheet.create({
     smallButton: {
         backgroundColor: '#065C6B',
         borderRadius: 10,
-        marginHorizontal: 10
+        margin: 10
     }
 })
 

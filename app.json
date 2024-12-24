@@ -51,7 +51,15 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Laila-Bold.ttf"]
+          "fonts": [
+            "./assets/fonts/Laila-Bold.ttf"
+          ]
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
         }
       ]
     ],
