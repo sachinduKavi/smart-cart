@@ -60,7 +60,7 @@ export default function QRCodeScanner() {
 
       <Button onPress={() => {
         router.back()
-      }} style={{...globalStyles.button, margin: 20}} textColor='white'>CANCEL</Button>
+      }} style={{...globalStyles.button, margin: 20}} textColor='white'><Text>CANCEL</Text></Button>
       </View>
 
     </View>

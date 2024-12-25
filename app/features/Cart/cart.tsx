@@ -1,16 +1,27 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import CustomAppBar from '@/app/components/CustomAppBar'
 import { ScrollView } from 'react-native'
 import CartItem from './CartItem'
 import { Button } from 'react-native-paper'
-import { useRouter } from 'expo-router'
+import { useRouter, useLocalSearchParams } from 'expo-router'
+import { initializeSocketConnection, emitMessage, socketDisconnect } from '@/app/services/socketConnection'
 
 
-export default function cart({cartID}: {cartID: string}) {
-    
+export default function cart() {
+    const {cartID} = useLocalSearchParams() 
     const router = useRouter()
 
+
+    useEffect(() => {
+        initializeSocketConnection() // Initialize the socket connection 
+
+        return () => {
+            // Connection disabling
+            console.log('Connection disconnect')
+            socketDisconnect()
+        }
+    }, [])
 
   return (
 
@@ -31,7 +42,10 @@ export default function cart({cartID}: {cartID: string}) {
         <View style={styles.bottomBar}>
             <Text style={styles.total}>LKR 25400.00</Text>
             <Button 
-            onPress={() => {router.navigate('/features/Welcome')}}
+            onPress={() => {
+                // router.navigate('/features/Welcome')
+                emitMessage('this is sachindu kavishka')
+            }}
             labelStyle={{fontWeight: 'bold'}}
             mode='outlined' textColor='white' style={styles.button}>CHECKOUT</Button>
         </View>
