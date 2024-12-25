@@ -5,21 +5,22 @@ import { ScrollView } from 'react-native'
 import CartItem from './CartItem'
 import { Button } from 'react-native-paper'
 import { useRouter, useLocalSearchParams } from 'expo-router'
-import { initializeSocketConnection, emitMessage, socketDisconnect } from '@/app/services/socketConnection'
+import SocketConnection from '@/app/services/socketConnection'
 
 
 export default function cart() {
     const {cartID} = useLocalSearchParams() 
     const router = useRouter()
 
+    let socket: SocketConnection
 
     useEffect(() => {
-        initializeSocketConnection() // Initialize the socket connection 
+        socket = new SocketConnection(cartID.toString())
 
         return () => {
             // Connection disabling
             console.log('Connection disconnect')
-            socketDisconnect()
+            socket.socketDisconnect()
         }
     }, [])
 
@@ -44,7 +45,7 @@ export default function cart() {
             <Button 
             onPress={() => {
                 // router.navigate('/features/Welcome')
-                emitMessage('this is sachindu kavishka')
+                socket.emitMessage('Hello World')
             }}
             labelStyle={{fontWeight: 'bold'}}
             mode='outlined' textColor='white' style={styles.button}>CHECKOUT</Button>
