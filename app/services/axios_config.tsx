@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const BEAR_TOKEN = 'iLzYqN6Qqft0f48l'
 const localDomain = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://192.168.8.167:3000'
 })
 
 const header = {

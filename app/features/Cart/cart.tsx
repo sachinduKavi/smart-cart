@@ -7,7 +7,7 @@ import { Button } from 'react-native-paper'
 import { useRouter } from 'expo-router'
 
 
-export default function cart() {
+export default function cart({cartID}: {cartID: string}) {
     
     const router = useRouter()
 
@@ -16,7 +16,7 @@ export default function cart() {
 
     <View style={{backgroundColor: 'white', display: 'flex', height: '100%'}}>
         
-        <CustomAppBar title="Smart Shopping Cart"/>
+        <CustomAppBar title={`Smart Shopping Cart ${cartID}`}/>
 
 
         <View style={{flex: 1}}>
