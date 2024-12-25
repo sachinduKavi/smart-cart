@@ -4,16 +4,17 @@ import CustomAppBar from '@/app/components/CustomAppBar'
 import { ScrollView } from 'react-native'
 import CartItem from './CartItem'
 import { Button } from 'react-native-paper'
-
+import { useRouter } from 'expo-router'
 
 
 export default function cart() {
- 
+    
+    const router = useRouter()
 
 
   return (
 
-        <View style={{backgroundColor: 'white', display: 'flex', height: '100%'}}>
+    <View style={{backgroundColor: 'white', display: 'flex', height: '100%'}}>
         
         <CustomAppBar title="Smart Shopping Cart"/>
 
@@ -30,6 +31,7 @@ export default function cart() {
         <View style={styles.bottomBar}>
             <Text style={styles.total}>LKR 25400.00</Text>
             <Button 
+            onPress={() => {router.navigate('/features/Welcome')}}
             labelStyle={{fontWeight: 'bold'}}
             mode='outlined' textColor='white' style={styles.button}>CHECKOUT</Button>
         </View>

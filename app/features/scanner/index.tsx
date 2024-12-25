@@ -10,6 +10,18 @@ import { useRouter } from 'expo-router';
 export default function QRCodeScanner() {
   const [permission, requestPermission] = useCameraPermissions()
   const router = useRouter()
+  let onProceed: boolean = true
+
+  // QR code detected 
+  // This is a critical function
+  const codeDetected = async (code: string) => {
+    onProceed = false
+    console.log(code) // console out the cart code
+
+    
+    console.log('End waiting')
+    onProceed = true
+  }
 
   if(!permission?.granted) {
     requestPermission()
@@ -17,23 +29,23 @@ export default function QRCodeScanner() {
   }else
   return (
     
-        <View style={{justifyContent: 'center', flex: 1,}}>
-          <CustomAppBar title="Scan the cart" backNavigation={true}/>
-         
-          <View style={{flex: 1, width: '100%', justifyContent: 'center', padding: 10}}>
-          <CameraView style={{width: '100%', aspectRatio: 1}} facing='back'
-          onBarcodeScanned={(data: any) => {
-            // QR or Barcode is detected 
-            console.log(data)
-          }}
-          > </CameraView>
+    <View style={{justifyContent: 'center', flex: 1,}}>
+      <CustomAppBar title="Scan the cart" backNavigation={true}/>
+      
+      <View style={{flex: 1, width: '100%', justifyContent: 'center', padding: 10}}>
+      <CameraView style={{width: '100%', aspectRatio: 1}} facing='back'
+      onBarcodeScanned={(data: any) => {
+        // QR or Barcode is detected 
+        if(onProceed) codeDetected(data.data);
+      }}
+      > </CameraView>
 
-          <Button onPress={() => {
-            router.back()
-          }} style={{...globalStyles.button, margin: 20}} textColor='white'>CANCEL</Button>
-          </View>
+      <Button onPress={() => {
+        router.back()
+      }} style={{...globalStyles.button, margin: 20}} textColor='white'>CANCEL</Button>
+      </View>
 
-        </View>
+    </View>
       
   )
 }
