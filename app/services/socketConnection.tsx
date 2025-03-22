@@ -7,12 +7,10 @@ class SocketConnection  {
     socket: any
     cartID: string
 
-
     constructor(cartID: string) {
         this.cartID = cartID
-        this.socket = io(SOCKET_URL, {
+        this.socket = io(SOCKET_URL + `?cartID=${this.cartID}`, {
             transports: ['websocket'],
-            query: {cartID: cartID}
         })
 
         // Connection established
@@ -23,8 +21,10 @@ class SocketConnection  {
         this.socket.on('disconnect',  () => {
             console.log('Connection disconnected with socket')
         })
-    }
 
+
+        
+    }
 
     socketDisconnect() {
         this.socket.disconnect()
@@ -34,6 +34,5 @@ class SocketConnection  {
         this.socket.emit(this.cartID, message)
     }
 }
-
 
 export default SocketConnection

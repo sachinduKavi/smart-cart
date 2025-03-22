@@ -3,22 +3,25 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import { Image } from 'react-native'
 import { Pressable } from 'react-native'
+import { CartItemInterface } from '@/app/models/products'
 
-export default function CartItem() {
+export default function CartItem(prams:any) {
+    const item:CartItemInterface  = prams.item
   return (
     <Pressable onPress={() => {}}>
         <View style={styles.container}>
       
-            <Image source={{uri: 'https://huckberry.imgix.net/spree/products/750779/original/50969_Flint_and_Tinder_10-Year_Pullover_Hoodie_Black_01.jpg?auto=format%2C%20compress&crop=top&fit=fill&cs=tinysrgb&ar=1%3A1&ixlib=react-9.8.1&w=799'}}
+            <Image source={{uri: item.image}}
                 style={styles.image}
                 resizeMode='cover'
             />
 
             <View style={styles.description}>
-                <Text style={{color: '#B7BAC4', fontSize: 14, marginVertical: 5}} ellipsizeMode='tail' numberOfLines={2}>Apple Watch Ultra 2 Apple Watch Ultra 2 Apple Watch Ultra 2</Text>
-                <Text style={{color: '#0291AC', fontSize: 20, fontWeight: 'bold'}}>LKR 2500.00</Text>
+                <Text style={{color: '#B7BAC4', fontSize: 20, marginVertical: 5,fontWeight: 'bold'}} ellipsizeMode='tail' numberOfLines={2}>{item.name}</Text>
+                <Text style={{color: '#B7BAC4', fontSize: 14, marginVertical: 5}} ellipsizeMode='tail' numberOfLines={2}>{item.description}</Text>
+                <Text style={{color: '#0291AC', fontSize: 20, fontWeight: 'bold'}}>LKR {item.unit_price}</Text>
                 
-                <Text style={{color: '#B7BAC4', fontSize: 20, marginVertical: 5, fontWeight: 'bold', alignSelf: 'flex-end', textAlign: 'right'}}>x1</Text>
+                <Text style={{color: '#B7BAC4', fontSize: 20, marginVertical: 5, fontWeight: 'bold', alignSelf: 'flex-end', textAlign: 'right'}}>x{item.quantity}</Text>
             </View>
         </View>
     </Pressable>
@@ -29,7 +32,6 @@ export default function CartItem() {
 const styles = StyleSheet.create({
     container: {
         padding: 10,
-        height: 150,
         backgroundColor: 'white',
         marginHorizontal: 25,
         marginVertical: 10,
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     },
 
     image: {
-        height: '100%',
+        height: 150,
         marginRight: 10,
         aspectRatio: 1,
         backgroundPosition: 'center',
